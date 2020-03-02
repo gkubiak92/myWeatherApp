@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        extendBodyBehindAppBar: true,
+        extendBodyBehindAppBar: true, //'detach' appBar from background
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -47,7 +47,10 @@ class MyApp extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 40,
+                  vertical: 20,
+                ),
                 child: NextDaysWeather(),
               ),
             )

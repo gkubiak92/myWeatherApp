@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class WeatherSummary extends StatelessWidget {
   final int temperature;
@@ -10,6 +11,9 @@ class WeatherSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final df = DateFormat.yMMMMEEEEd();
+    final formattedDate = df.format(this.date);
+
     return Container(
       width: double.infinity,
       height: 260,
@@ -28,14 +32,14 @@ class WeatherSummary extends StatelessWidget {
                   style: TextStyle(fontSize: 64, color: Colors.white),
                 ),
                 Text(
-                  'C',
+                  '\u2103', //farenheit: \u2109 only degree symbol: \u00B0
                   style: TextStyle(fontSize: 32, color: Colors.white),
                 )
               ],
             ),
             Text(this.summary,
                 style: TextStyle(fontSize: 16, color: Colors.white)),
-            Text(this.date.toString(),
+            Text(formattedDate.toString(),
                 style: TextStyle(fontSize: 16, color: Colors.white)),
           ],
         ),

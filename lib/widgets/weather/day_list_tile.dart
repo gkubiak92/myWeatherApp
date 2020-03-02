@@ -12,7 +12,7 @@ class DayListTile extends StatelessWidget {
       leading: Text(this.day),
       title: Icon(Icons.wb_cloudy),
       trailing: Text(
-        '${this.temperature.toString()} C',
+        '${this.temperature.toString()} \u2103',
         style: TextStyle(fontSize: 24),
       ),
     );
