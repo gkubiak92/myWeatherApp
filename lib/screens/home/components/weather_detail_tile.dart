@@ -10,19 +10,22 @@ class WeatherDetailTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Icon(this.icon, size: 32, color: Colors.blueAccent),
-        Text(
-          this.value,
-          style: TextStyle(fontSize: 20),
-        ),
-        Text(
-          this.description,
-          style: TextStyle(color: Colors.black45),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(this.icon, size: 32, color: Colors.blueAccent),
+          Text(
+            this.value,
+            style: TextStyle(fontSize: 20),
+          ),
+          Text(
+            this.description,
+            style: TextStyle(color: Colors.black45),
+          ),
+        ],
+      ),
     );
   }
 }

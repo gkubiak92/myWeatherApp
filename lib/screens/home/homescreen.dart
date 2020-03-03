@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:myWeatherApp/components/side_drawer.dart';
+import 'package:myWeatherApp/providers/weather.dart';
+import 'package:myWeatherApp/screens/home/components/search_bar.dart';
+import 'package:provider/provider.dart';
 import 'components/next_days_weather.dart';
 import 'components/weather_details.dart';
 import 'components/weather_summary.dart';
@@ -7,18 +11,29 @@ import 'components/weather_summary.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final weatherProvider = Provider.of<Weather>(context);
+
     return Scaffold(
       extendBodyBehindAppBar: true, //'detach' appBar from background
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        title: Text('localization plPL'),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {},
-        ),
+        title: SearchBar(),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              weatherProvider.getCurrentWeatherData();
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.place),
+            onPressed: () {},
+          ),
+        ],
       ),
+      drawer: SideDrawer(),
       body: Column(
         children: <Widget>[
           Stack(
