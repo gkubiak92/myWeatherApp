@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final weatherProvider = Provider.of<Weather>(context);
+    final curWeather = weatherProvider.currentWeather;
 
     return Scaffold(
       extendBodyBehindAppBar: true, //'detach' appBar from background
@@ -41,17 +42,35 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  WeatherSummary(
-                    temperature: 12,
-                    summary: 'Cloudy day today',
-                    date: DateTime.now(),
-                  ),
+                  curWeather == null
+                      ? WeatherSummary(
+                          temperature: 12,
+                          summary: 'Cloudy day today',
+                          date: DateTime.now(),
+                        )
+                      : WeatherSummary(
+                          temperature: curWeather.temperature,
+                          summary: curWeather.summary,
+                          date: DateTime.now(),
+                        ),
                   SizedBox(
                     height: 50,
                   ),
                 ],
               ),
-              WeatherDetail(),
+              curWeather == null
+                  ? WeatherDetails(
+                      humidity: 0.49,
+                      cloudCover: 0.24,
+                      pressure: 1091,
+                      windSpeed: 14,
+                    )
+                  : WeatherDetails(
+                      humidity: curWeather.humidity,
+                      cloudCover: curWeather.cloudCover,
+                      pressure: curWeather.pressure,
+                      windSpeed: curWeather.windSpeed,
+                    ),
             ],
           ),
           Expanded(

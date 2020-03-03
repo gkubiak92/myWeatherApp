@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class WeatherSummary extends StatelessWidget {
-  final int temperature;
+  final double temperature;
   final String summary;
   final DateTime date;
 
@@ -28,7 +28,7 @@ class WeatherSummary extends StatelessWidget {
               children: <Widget>[
                 Icon(Icons.wb_cloudy, size: 64, color: Colors.white),
                 Text(
-                  this.temperature.toString(),
+                  this.temperature.toStringAsFixed(0),
                   style: TextStyle(fontSize: 64, color: Colors.white),
                 ),
                 Text(

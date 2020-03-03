@@ -22,15 +22,16 @@ class CurrentWeather with ChangeNotifier {
   @required
   final double cloudCover;
 
-  CurrentWeather(
-      this.latitude,
-      this.longitude,
-      this.timezone,
-      this.summary,
-      this.icon,
-      this.temperature,
-      this.humidity,
-      this.pressure,
-      this.windSpeed,
-      this.cloudCover);
+  CurrentWeather({
+    this.latitude,
+    this.longitude,
+    this.timezone,
+    this.summary,
+    this.icon,
+    this.temperature,
+    this.humidity,
+    this.pressure,
+    this.windSpeed,
+    this.cloudCover,
+  });
 }
