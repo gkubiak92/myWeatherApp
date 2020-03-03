@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myWeatherApp/widgets/weather/weather_detail_tile.dart';
+
+import 'weather_detail_tile.dart';
 
 class WeatherDetail extends StatelessWidget {
   @override
