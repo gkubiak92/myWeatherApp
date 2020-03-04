@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatelessWidget {
+class SearchBar extends StatefulWidget {
+  @override
+  _SearchBarState createState() => _SearchBarState();
+}
+
+class _SearchBarState extends State<SearchBar> {
+  TextEditingController inputController;
+
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: inputController,
+      onSubmitted: (text) => print(text),
       textAlignVertical: TextAlignVertical.center,
       style: TextStyle(
         fontSize: 18,

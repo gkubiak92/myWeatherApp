@@ -42,35 +42,17 @@ class HomeScreen extends StatelessWidget {
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  curWeather == null
-                      ? WeatherSummary(
-                          temperature: 12,
-                          summary: 'Cloudy day today',
-                          date: DateTime.now(),
-                        )
-                      : WeatherSummary(
-                          temperature: curWeather.temperature,
-                          summary: curWeather.summary,
-                          date: DateTime.now(),
-                        ),
+                  WeatherSummary(
+                    weather: curWeather,
+                  ),
                   SizedBox(
                     height: 50,
                   ),
                 ],
               ),
-              curWeather == null
-                  ? WeatherDetails(
-                      humidity: 0.49,
-                      cloudCover: 0.24,
-                      pressure: 1091,
-                      windSpeed: 14,
-                    )
-                  : WeatherDetails(
-                      humidity: curWeather.humidity,
-                      cloudCover: curWeather.cloudCover,
-                      pressure: curWeather.pressure,
-                      windSpeed: curWeather.windSpeed,
-                    ),
+              WeatherDetails(
+                weather: curWeather,
+              ),
             ],
           ),
           Expanded(

@@ -18,7 +18,7 @@ class Weather with ChangeNotifier {
   }
 
   Future<void> getCurrentWeatherData() async {
-    const url = ApiData.apiUrl;
+    const url = ApiData.darkSkyApiUrl;
     final response = await http.get(url);
     final resData = json.decode(response.body);
     final cw = resData['currently'];
